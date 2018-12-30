@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[learningstuff]]></title><description><![CDATA[A simple tech blog.]]></description><link>https://alamgirqazi.github.io/learningstuff</link><generator>RSS for Node</generator><lastBuildDate>Sun, 30 Dec 2018 07:27:32 GMT</lastBuildDate><item><title><![CDATA[Go lang notes]]></title><description><![CDATA[Go Lang https://golang.org/ref/spec#Types 
+ https://gobuffalo.io/en/docs/installation 
+ https://tour.golang.org/welcome/1 
+ https…]]></description><link>https://alamgirqazi.github.io/learningstuff/golang/</link><guid isPermaLink="false">https://alamgirqazi.github.io/learningstuff/golang/</guid><pubDate>Sun, 30 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Go Lang&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://golang.org/ref/spec#Types&quot;&gt;https://golang.org/ref/spec#Types&lt;/a&gt;
+&lt;a href=&quot;https://gobuffalo.io/en/docs/installation&quot;&gt;https://gobuffalo.io/en/docs/installation&lt;/a&gt;
+&lt;a href=&quot;https://tour.golang.org/welcome/1&quot;&gt;https://tour.golang.org/welcome/1&lt;/a&gt;
+&lt;a href=&quot;https://gobyexample.com/goroutines&quot;&gt;https://gobyexample.com/goroutines&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Why?&lt;/p&gt;
+&lt;p&gt;But, most of the modern programming languages(like Java, Python etc.) are from the ’90s single threaded environment.
+Most of those programming languages supports multi-threading. But the real problem comes with concurrent execution,
+threading-locking, race conditions and deadlocks. Those things make it hard to create a multi-threading application on those languages.&lt;/p&gt;
+&lt;p&gt;For an example, creating new thread in Java is not memory efficient. As every thread consumes approx 1MB of the memory heap size and eventually if you start spinning thousands of threads, they will put tremendous pressure on the heap and will cause shut down due to out of memory. Also, if you want to communicate between two or more threads, it’s very difficult.&lt;/p&gt;
+&lt;p&gt;On the other hand, Go was released in 2009 when multi-core processors were already available. That’s why Go is built with keeping concurrency in mind. Go has goroutines instead of threads. They consume almost 2KB memory from the heap. So, you can spin millions of goroutines at any time.&lt;/p&gt;
+&lt;p&gt;Goroutines have growable segmented stacks. That means they will use more memory only when needed.
+Goroutines have a faster startup time than threads.
+Goroutines come with built-in primitives to communicate safely between themselves (channels).&lt;/p&gt;
+&lt;p&gt;Go takes good of both the worlds. Easy to write concurrent and efficient to manage concurrency&lt;/p&gt;
+&lt;p&gt;One most considerable benefit of using C, C++ over other modern higher level languages like Java/Python is their performance. Because C/C++ are compiled and not interpreted.&lt;/p&gt;
+&lt;p&gt;While on the other side, C/C++ does not execute on VMs and that removes one step from the execution cycle and increases the performance. It directly compiles the human readable code to binaries.&lt;/p&gt;
+&lt;p&gt;It also uses garbage collection to allocation and removal of the object. So, no more malloc() and free() statements!!! Cool!!!&lt;/p&gt;
+&lt;p&gt;Go intentionally leaves out many features of modern OOP languages.&lt;/p&gt;
+&lt;p&gt;No classes. Every thing is divided into packages only. Go has only structs instead of classes.
+Does not support inheritance. That will make code easy to modify. In other languages like Java/Python, if the class ABC inherits class XYZ and you make some changes in class XYZ, then that may produce some side effects in other classes that inherit XYZ. By removing inheritance, Go makes it easy to understand the code also (as there is no super class to look at while looking at a piece of code).
+No constructors.
+No annotations.
+No generics.
+No exceptions.&lt;/p&gt;
+&lt;p&gt;Today applications rely on a number of external services: databases, caches, search and message queues.&lt;/p&gt;
+&lt;p&gt;It is becoming more common to build applications as a collection of microservices.&lt;/p&gt;
+&lt;p&gt;Go should use asynchronous I/O so that our application can interact with any number of services without blocking web requests.&lt;/p&gt;
+&lt;p&gt;What happens if we want to support thousands of connections and still take advantage of multicore? We could combine threads and coroutines (Ruby calls them fibers, Python uses generators). Or mix callbacks and processes, using Node.js with the Cluster module.&lt;/p&gt;
+&lt;p&gt;Go has one straightforward model. It multiplexes goroutines onto OS threads (like Erlang), and stacks grow as needed. Go not only addresses the C10K problem, it blows past it! (C1000K)&lt;/p&gt;
+&lt;p&gt;If you must have a full stack web application framework, Revel is as close as it gets.&lt;/p&gt;
+&lt;p&gt;While many shops that have been using Java have moved to Scala for concurrency reasons, we felt that moving to a functional programming language was going to really up the learning curve.&lt;/p&gt;
+&lt;p&gt;If you’re doing distributed work then you’ll find Go’s expressive concurrency primitives very helpful. We could achieve similar things in Node with generators, but in my opinion generators will only ever get us half way there. &lt;/p&gt;
+&lt;p&gt;Go heavily relies on static code analysis. Examples include godoc for documentation, gofmt for code formatting, golint for code style linting, and many others.&lt;/p&gt;
+&lt;p&gt;Concurrent programming in complex applications is never easy regardless of the specific technique, partly due to the possibility of race conditions.&lt;/p&gt;
+&lt;p&gt;Stick to static types as much as possible, and use interfaces when you know exactly what sort of types you’re dealing with. Interfaces are very powerful and ubiquitous in Go.&lt;/p&gt;
+&lt;p&gt;Go has only 25 keywords, and this can give you a clue on how simple it is to learn the language. We’ll be looking at the common language patterns, and we’ll see how cleaner and easier it is to do some common tasks as compared to other languages.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;names := []string{&amp;quot;Scotch&amp;quot;, &amp;quot;IO&amp;quot;}
+var flt float64 = 2.34 // declaring a float 
+var name string = &amp;quot;Scotch&amp;quot; // declaring a string
+a, b := true, false,  // shorthand declaration syntax&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since Go is statically typed, we need to do a little extra to define objects. There are two ways to do this, and it involves using map. A map is a key value data structure, where the keys are a set (does not contain duplicates).&lt;/p&gt;
+&lt;p&gt;The other way to write obects in Go is by using Structs. A struct is an abstract data structure, with properties and methods. It’s a close equivalent to a Class in Javascript.&lt;/p&gt;
+&lt;p&gt;Go’s files must be written within packages, and this usually affects your file structure.&lt;/p&gt;
+&lt;p&gt;In JavaScript, you’ll see a lot of require statements at the beginning of files, while in Golang, the first line is always a package name, which will then be used as an import path in a file where it’s required import package&lt;em&gt;path/package&lt;/em&gt;name&lt;/p&gt;
+&lt;p&gt;A goroutine is a lightweight thread of execution.&lt;/p&gt;
+&lt;p&gt;To invoke this function in a goroutine, use go f(s). This new goroutine will execute concurrently with the calling one.&lt;/p&gt;
+&lt;p&gt;Concurrency in Go is the ability for functions to run independent of each other. &lt;/p&gt;
+&lt;p&gt;Automation and Command-line tools - Go is also a great tool to make complex automation tools for developers. It fast, lightweight and follows unix “Do one thing. And do it well.”. Bash scripting serves the purpose as well, but bash scripts can get ugly really fast when you need to do more complex processes. DevOps is beginning to use more and more golang.&lt;/p&gt;
+&lt;p&gt;Producing maintainable code - Standardized formatting and naming through tooling (gofmt, lint) and minimalistic language makes it easy to read and reason. Through my experience as a Freelancer, go is very popular for companies who hire a large amount of freelancers, because short term contractors can get into the codebase fairly easy and get productive in no time.&lt;/p&gt;
+&lt;p&gt;Golang is good for almost any and every type of Business Application. It is great for analytics applications, AI, apps on the cloud and more. Some of the reasons why Golang is good for so many different types of application are:&lt;/p&gt;
+&lt;p&gt;Everything else? It’s great for. It’s real sweet spot is backend server APIs and ops tooling - it’s being adopted in droves for those two use cases.&lt;/p&gt;
+&lt;p&gt;Sometimes you can tell a lot about a language by the features its creators choose to omit. Go deviates from most OOP languages by choosing composition over inheritance. &lt;/p&gt;</content:encoded></item></channel></rss>
